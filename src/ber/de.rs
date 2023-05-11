@@ -251,7 +251,7 @@ impl<'input> crate::Decoder for Decoder<'input> {
                             *last &= !((1 << bits) - 1);
                         }
                         if buffer.last().map_or(false, |i| *i == 0) {
-                            buffer.pop();
+                            //buffer.pop();
                         }
 
                         let string = types::BitString::from_vec(buffer);
@@ -274,7 +274,8 @@ impl<'input> crate::Decoder for Decoder<'input> {
             .rev()
             .find(|(_, v)| **v != 0)
         {
-            Ok(types::BitString::from_vec(bs.as_raw_slice()[..=i].to_vec()))
+            //Ok(types::BitString::from_vec(bs.as_raw_slice()[..=i].to_vec()))
+            Ok(bs)
         } else {
             Ok(bs)
         }
